@@ -33,6 +33,15 @@ class cardapioController {
 			return res.status(400).json({ message: `Deu erro ${error}` });
 		}
 	}
+
+	static async showAll(req, res) {
+		try {
+			const users = await cardapioModel.findAll();
+			return res.status(200), json({ pratos: pratos });
+		} catch (erro) {
+			return res.status(400).json({ message: `Deu erro: ${erro}` });
+		}
+	}
 }
 
 module.exports = cardapioController;
