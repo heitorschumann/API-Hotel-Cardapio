@@ -25,8 +25,14 @@ const cardapioModel = sequelize.define("cardapio", {
 		},
 	},
 	vegan: {
-		type: DataTypes.BOOLEAN,
+		type: DataTypes.STRING,
 		allowNull: false,
+		validate: {
+			isIn: {
+				args: [["sim", "não"]],
+				msg: "Digite se o prato é vegan(sim/não)",
+			},
+		},
 	},
 	tipo: {
 		type: DataTypes.STRING,
@@ -34,7 +40,7 @@ const cardapioModel = sequelize.define("cardapio", {
 		validate: {
 			isIn: {
 				args: [["comida", "bebida"]],
-				msg: "Escreva o tipo do alimento (comida/bebida)",
+				msg: "Digite o tipo do alimento (comida/bebida)",
 			},
 		},
 	},
