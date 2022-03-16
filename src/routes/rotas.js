@@ -16,4 +16,7 @@ router.post("/registrar", cardapioController.registrar);
 // A rota deve deletar um prato baseado em seu ID
 router.delete("/:id", cardapioController.deleteById);
 
+//A rota deve atualizar um registro do banco
+router.patch("/", cardapioController.updateById);
+
 module.exports = router;

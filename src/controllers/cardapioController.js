@@ -91,6 +91,37 @@ class cardapioController {
 				.json({ status: 401, message: `Algo deu errado: ${erro}` });
 		}
 	}
+
+	static async updateById(req, res) {
+		const id = req.params;
+		const { nomePrato, valor, serve, vegan, tipo } = req.body;
+
+		const prato = await cardapioModel.findOne({ where: { id: id }, raw: true });
+
+		if (!prato) {
+			return res.status(401).json({
+				status: 401,
+				message: "Prato não encontrado!",
+			});
+		}
+
+		const novosDados = {
+			nomePrato,
+			valor,
+			serve,
+			vegan,
+			tipo,
+		};
+
+		try {
+			await cardapioModel.update(novosDados, { where: prato });
+			return res
+				.status(200)
+				.json({ status: 200, message: "Prato atualizado com sucesso" });
+		} catch (erro) {
+			return res.status(400).json({ message: `Algo deu errado: ${erro}` });
+		}
+	}
 }
 
 module.exports = cardapioController;
