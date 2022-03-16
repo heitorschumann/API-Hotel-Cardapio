@@ -5,6 +5,12 @@ class cardapioController {
 	static async registrar(req, res) {
 		const { nomePrato, valor, serve, vegan, tipo } = req.body;
 
+		console.log(nomePrato);
+		console.log(valor);
+		console.log(serve);
+		console.log(vegan);
+		console.log(tipo);
+
 		if (!nomePrato || !valor || !serve || !vegan || !tipo) {
 			return res
 				.status(400)
@@ -93,7 +99,7 @@ class cardapioController {
 	}
 
 	static async updateById(req, res) {
-		const id = req.params;
+		const id = req.params.id;
 		const { nomePrato, valor, serve, vegan, tipo } = req.body;
 
 		const prato = await cardapioModel.findOne({ where: { id: id }, raw: true });

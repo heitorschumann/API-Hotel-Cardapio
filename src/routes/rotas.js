@@ -17,6 +17,6 @@ router.post("/registrar", cardapioController.registrar);
 router.delete("/:id", cardapioController.deleteById);
 
 //A rota deve atualizar um registro do banco
-router.patch("/", cardapioController.updateById);
+router.patch("/:id", cardapioController.updateById);
 
 module.exports = router;
