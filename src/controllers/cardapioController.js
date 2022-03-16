@@ -1,3 +1,4 @@
+//importa o model
 const cardapioModel = require("../model/cardapioModel.js");
 
 class cardapioController {
@@ -10,7 +11,7 @@ class cardapioController {
 				.json({ message: "todos os campos são obrigatórios" });
 		}
 
-		const pratoExiste = await testeModel.findOne({
+		const pratoExiste = await cardapioModel.findOne({
 			where: { nomePrato: nomePrato },
 		});
 
@@ -36,8 +37,32 @@ class cardapioController {
 
 	static async showAll(req, res) {
 		try {
-			const users = await cardapioModel.findAll();
-			return res.status(200), json({ pratos: pratos });
+			const pratos = await cardapioModel.findAll({
+				attributes: { exclude: ["createdAt", "updatedAt"] },
+			});
+			return res.status(200).json({ cardapio: pratos });
+		} catch (erro) {
+			return res.status(400).json({ message: `Deu erro: ${erro}` });
+		}
+	}
+
+	static async showById(req, res) {
+		try {
+			const id = req.params.id;
+			const pratos = await cardapioModel.findOne({
+				where: {
+					id: id,
+				},
+			});
+
+			if (!pratos) {
+				return res.status(401).json({
+					status: 401,
+					message: "Prato não encontrado!",
+				});
+			}
+
+			return res.status(200).json({ pratos: pratos });
 		} catch (erro) {
 			return res.status(400).json({ message: `Deu erro: ${erro}` });
 		}
