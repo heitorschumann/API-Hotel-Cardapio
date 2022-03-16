@@ -13,4 +13,7 @@ router.get("/", cardapioController.showAll);
 // A rota deve registrar um novo prato
 router.post("/registrar", cardapioController.registrar);
 
+// A rota deve deletar um prato baseado em seu ID
+router.delete("/:id", cardapioController.deleteById);
+
 module.exports = router;

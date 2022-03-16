@@ -67,6 +67,30 @@ class cardapioController {
 			return res.status(400).json({ message: `Deu erro: ${erro}` });
 		}
 	}
+
+	static async deleteById(req, res) {
+		const id = req.params.id;
+
+		const prato = await cardapioModel.findOne({ where: { id: id }, raw: true });
+
+		if (!prato) {
+			return res.status(401).json({
+				status: 401,
+				message: "Prato não encontrado!",
+			});
+		}
+
+		try {
+			await cardapioModel.destroy({ where: prato });
+			return res
+				.status(200)
+				.json({ status: 200, message: "Prato deletado com sucesso!" });
+		} catch (erro) {
+			return res
+				.status(401)
+				.json({ status: 401, message: `Algo deu errado: ${erro}` });
+		}
+	}
 }
 
 module.exports = cardapioController;
