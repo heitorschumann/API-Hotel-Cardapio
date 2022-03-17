@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use("/cardapio", rotas);
 
-const port = 3001;
+const port = process.env.PORT;
 
 async function sincronizar() {
 	try {
