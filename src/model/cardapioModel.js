@@ -11,7 +11,7 @@ const cardapioModel = sequelize.define("cardapio", {
 		allowNull: false,
 		validate: {
 			isFloat: {
-				msg: "Coloque um numero com virgula(ponto), se for inteiro coloque dois zeros depois da virgula",
+				msg: "O campo 'valor' deve receber um número decimal(se for inteiro colocar .00)",
 			},
 		},
 	},
@@ -20,7 +20,7 @@ const cardapioModel = sequelize.define("cardapio", {
 		allowNull: false,
 		validate: {
 			isInt: {
-				msg: "Digite o numero de pessoas",
+				msg: "O campo 'serve' deve receber um número (inteiro) de pessoas",
 			},
 		},
 	},
@@ -30,7 +30,7 @@ const cardapioModel = sequelize.define("cardapio", {
 		validate: {
 			isIn: {
 				args: [["sim", "não"]],
-				msg: "Digite se o prato é vegan(sim/não)",
+				msg: "O campo 'vegan' deve receber uma string respondendo se o prato é vegan(sim/não)",
 			},
 		},
 	},
@@ -40,7 +40,7 @@ const cardapioModel = sequelize.define("cardapio", {
 		validate: {
 			isIn: {
 				args: [["comida", "bebida"]],
-				msg: "Digite o tipo do alimento (comida/bebida)",
+				msg: "O campo 'tipo' deve receber uma string respondendo o tipo do alimento (comida/bebida)",
 			},
 		},
 	},
