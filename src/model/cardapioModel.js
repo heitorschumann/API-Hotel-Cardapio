@@ -11,7 +11,7 @@ const cardapioModel = sequelize.define("cardapio", {
 		allowNull: false,
 		validate: {
 			isFloat: {
-				msg: "O campo 'valor' deve receber um número decimal(se for inteiro colocar .00)",
+				msg: "O campo 'valor' deve receber um número",
 			},
 		},
 	},
