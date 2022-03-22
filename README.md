@@ -14,7 +14,7 @@
        <br />
     <br />
     <h1 align="center">
-    <img src="./readme/pensamentos.gif" alt="gif-readme">
+    <img src="./readme/api.gif" alt="gif-readme">
  </h1>
   </p>
 </p>
