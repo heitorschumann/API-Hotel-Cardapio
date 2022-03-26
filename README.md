@@ -98,6 +98,13 @@ $ git clone https://github.com/heitorschumann/API-Hotel-Cardapio
 # Acesse a pasta do projeto no terminal
 $ cd API-Hotel-Cardapio
 
+# Na pasta raiz copie o arquivo .env.exemple e renomeie para .env
+//linux
+$ cp .env.example .env
+
+//windows
+copy "./.env.example" "./.env"
+
 # Instale as dependências do projeto
 $ npm install
 
