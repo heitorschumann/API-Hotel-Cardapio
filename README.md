@@ -38,6 +38,41 @@ Nesta aplicação é possível cadastrar, listar, atualizar e deletar pratos do 
 ✔ CRUD com Sequelize <br>
 ✔ Padrão MVC
 
+# Rodando o projeto:
+
+### Pré-requisitos:
+
+Antes de começar, você precisará instalar em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e [Insomnia](https://insomnia.rest/download). <br> Além disso, é aconselhável ter um editor como o [VSCode](https://code.visualstudio.com/) para trabalhar com o código!
+
+### Instalando e rodando o projeto:
+
+```bash
+# Clone este repositório
+$ git clone https://github.com/heitorschumann/API-Hotel-Cardapio
+
+# Acesse a pasta do projeto no terminal
+$ cd API-Hotel-Cardapio
+
+# Na pasta raiz copie o arquivo .env.exemple e renomeie para .env
+//linux
+$ cp .env.example .env
+
+//windows
+copy "./.env.example" "./.env"
+
+# Instale as dependências do projeto
+$ npm install
+
+# Inicie o servidor da aplicação
+$ npm start
+
+# Utilize o Insomnia para realizar as requisições nas rotas
+
+#Obs: Caso queira popular o banco de dados, acesse o arquivo 'app.js' no VSCode, remova o '//' da linha 21 e execute o comando npm start
+
+```
+
 # Rotas da aplicação:
 
 ## Cardápio
@@ -81,41 +116,6 @@ Foi adicionada as seguintes validações para os dados recebidos nas requisiçõ
 - O campo "serve" deve receber um número inteiro<br>
 - O campo 'vegan' deve receber uma string respondendo se o prato é vegan(sim/não)<br>
 - O campo 'tipo' deve receber uma string respondendo o tipo do alimento (comida/bebida)<br><br>
-
-# Rodando o projeto:
-
-### Pré-requisitos:
-
-Antes de começar, você precisará instalar em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e [Insomnia](https://insomnia.rest/download). <br> Além disso, é aconselhável ter um editor como o [VSCode](https://code.visualstudio.com/) para trabalhar com o código!
-
-### Instalando e rodando o projeto:
-
-```bash
-# Clone este repositório
-$ git clone https://github.com/heitorschumann/API-Hotel-Cardapio
-
-# Acesse a pasta do projeto no terminal
-$ cd API-Hotel-Cardapio
-
-# Na pasta raiz copie o arquivo .env.exemple e renomeie para .env
-//linux
-$ cp .env.example .env
-
-//windows
-copy "./.env.example" "./.env"
-
-# Instale as dependências do projeto
-$ npm install
-
-# Inicie o servidor da aplicação
-$ npm start
-
-# Utilize o Insomnia para realizar as requisições nas rotas
-
-#Obs: Caso queira popular o banco de dados, acesse o arquivo 'app.js' no VSCode, remova o '//' da linha 21 e execute o comando npm start
-
-```
 
 ### Dependências:
 
